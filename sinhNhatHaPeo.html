@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Haley Hà Péo</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #ffe6f0, #ffccff);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .book {
+      width: 90%;
+      max-width: 600px;
+      height: 400px;
+      position: relative;
+      perspective: 2000px;
+      margin: 2rem auto;
+    }
+
+	.page {
+	  width: 100%;
+	  height: 100%;
+	  position: absolute;
+	  background-color: white;
+	  border-radius: 1rem;
+	  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+	  padding: 2rem;
+	  box-sizing: border-box;
+	  backface-visibility: hidden;
+	  transform-style: preserve-3d;
+	  transition: transform 1s;
+	  overflow: hidden; /* Add this line */
+	}
+
+    .page:nth-child(1) {
+      z-index: 2;
+      transform: rotateY(0deg);
+    }
+
+    .page:nth-child(2) {
+      transform: rotateY(-180deg);
+    }
+
+    .book.flipped .page:nth-child(1) {
+      transform: rotateY(180deg);
+    }
+
+    .book.flipped .page:nth-child(2) {
+      transform: rotateY(0deg);
+      z-index: 3;
+    }
+
+    .flip-button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: #ff3399;
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .heart {
+      font-size: 2rem;
+      color: red;
+      animation: beat 1s infinite;
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+	.slide {
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  height: 100%;
+	}
+
+	.slide img {
+	  max-width: 100%;
+	  max-height: 100%;
+	  border-radius: 1rem;
+	  object-fit: contain;
+	}
+  </style>
+</head>
+<body>
+
+  <div class="book" id="book">
+    <div class="page">
+      <h1 style="color:#ff3399; font-size:2.5rem; text-align:center">Happy Birthday 💖</h1>
+      <p style="text-align:center; font-size:1.2rem">to Pé Phiền Haley Kim 🎉</p>
+      <div class="heart" style="text-align:center">❤️</div>
+      <div style="text-align:center; margin-top: 2rem; font-size: 0.9rem; color: #777;">21/04/2025</div>
+    </div>
+    <div class="page">
+      <div class="slide">
+        <img src="z6472349462012_6e47d71ecc9afd4cdfb105b2d033238f.jpg" alt="Birthday celebration 1"" alt="Birthday celebration 1">
+      </div>
+    </div>
+  </div>
+
+  <button class="flip-button" onclick="flipBook()">Tiếp đi</button>
+
+  <script>
+    function flipBook() {
+      document.getElementById('book').classList.toggle('flipped');
+    }
+  </script>
+
+</body>
+</html>
